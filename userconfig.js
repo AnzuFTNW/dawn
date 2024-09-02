@@ -1,12 +1,7 @@
 const CONFIG = new Config({
-  crypto: {
-    coin: 'ETH',
-    currency: 'USD',
-    refreshIn: 10
-  },
   overrideStorage: true, // override localStorage with fixed userconfig values
   temperature: {
-    location: 'Matão, São Paulo',
+    location: 'Hamburg',
     scale: 'C'
   },
   clock: {
@@ -16,8 +11,6 @@ const CONFIG = new Config({
   search: {
     engines: {
       g: ['https://google.com/search?q=', 'Google'],
-      i: ['https://ixquick.com/do/search?q=', 'Ixquick'],
-      d: ['https://duckduckgo.com/html?q=', 'DuckDuckGo'],
       y: ['https://youtube.com/results?search_query=', 'Youtube'],
       w: ['https://en.wikipedia.org/w/index.php?search=', 'Wikipedia']
     }
@@ -30,75 +23,86 @@ const CONFIG = new Config({
   openLastVisitedTab: false,
   tabs: [
     {
-      name: 'boards',
+      name: 'home',
       background_url: 'src/img/banners/bg-1.gif',
       categories: [{
-        name: 'fun',
+        name: 'google',
         links: [
           {
-            url: 'https://4chan.org/wsg/',
-            name: '/wsg/'
-          },
-          {
-            name: '/out/',
-            url: 'https://4chan.org/out',
-            icon: 'leaf',
-            icon_color: '#64876d'
-          },
-          {
-            name: '/lit/',
-            url: 'https://4chan.org/lit/',
-            icon: 'book'
-          },
-          {
-            name: '/v/',
-            url: 'https://4chan.org/v/',
-            icon: 'device-gamepad',
+            name: 'youtube',
+            url: 'https://www.youtube.com',
+            icon: 'brand-youtube',
             icon_color: '#8b647b'
           },
           {
-            name: '/p/',
-            url: 'https://4chan.org/p/',
-            icon: 'camera'
+            url: 'https://mail.google.com/mail/u/0/#inbox',
+            name: 'gmail',
+            icon: 'brand-gmail'
+          },
+          {
+            name: 'gdrive',
+            url: 'https://drive.google.com/drive/u/0/my-drive',
+            icon: 'brand-google-drive',
+          },
+          {
+            name: 'sheets',
+            url: 'https://docs.google.com/spreadsheets/u/0/',
+            icon: 'table'
           }
         ]
       },
       {
-        name: 'Comfy',
+        name: 'productivity',
         links: [
           {
-            name: '/lounge/',
-            url: 'https://sushigirl.us/lounge/catalog.html'
+            name: 'chatgpt',
+            url: 'https://chatgpt.com',
+            icon: 'brand-openai'
           },
           {
-            name: '/comfy/',
-            url: 'https://anon.cafe/comfy/catalog.html'
+            name: 'cohere',
+            url: 'https://dashboard.cohere.com/',
+            icon: 'robot'
+          },
+          {
+            name: 'deepl',
+            url: 'https://www.deepl.com/en/translator',
+            icon: 'language-hiragana'
+          },
+          {
+            name: 'excalidraw',
+            url: 'https://excalidraw.com',
+            icon: 'chalkboard'
           }
         ]
       },
       {
-        name: 'Technology',
+        name: 'social',
         links: [
           {
-            name: '/g/',
-            url: 'https://4chan.org/g/',
+            name: 'anilist',
+            url: 'https://anilist.co/home',
+            icon: 'brand-among-us'
           },
           {
-            name: '/Δ/',
-            url: 'https://archive.arisuchan.jp/%CE%94/catalog.html'
+            name: 'anichart',
+            url: 'https://anichart.net',
+            icon: 'device-tv'
           },
           {
-            name: '/λ/',
-            url: 'https://www.lainchan.org/%CE%BB/catalog.html'
+            name: 'x',
+            url: 'https://x.com/home',
+            icon: 'brand-x'
           },
           {
-            name: '/sec/',
-            url: 'https://www.lainchan.org/sec/catalog.html'
+            name: 'instagram',
+            url: 'https://www.instagram.com/',
+            icon: 'brand-instagram'
           },
           {
-            name: '/prog/',
-            url: 'https://boards.420chan.org/prog/',
-            icon: 'code'
+            name: 'whatsapp',
+            url: 'https://web.whatsapp.com',
+            icon: 'brand-whatsapp'
           }
         ]
       }

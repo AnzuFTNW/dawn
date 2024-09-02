@@ -134,13 +134,13 @@ class Statusbar extends Component {
           padding: 0 1em;
       }
 
-      .widget:first-child {
-          padding-left: 2em;
-      }
+      # widget:first-child {
+      #     padding-left: 2em;
+      # }
 
-      .widget:last-child {
-          padding-right: 2em;
-      }
+      # .widget:last-child {
+      #     padding-right: 2em;
+      # }
 
       .widget:hover {
           cursor: pointer;
@@ -198,7 +198,6 @@ class Statusbar extends Component {
                 </button>
                 <ul class="- indicator"></ul>
                 <div class="+ widgets col-end">
-                    <crypto-rate class="+ widget"></crypto-rate>
                     <current-time class="+ widget"></current-time>
                     <weather-forecast class="+ widget weather"></weather-forecast>
                 </div>
@@ -207,7 +206,7 @@ class Statusbar extends Component {
   }
 
   setEvents() {
-    // this.refs.addTab.onclick = () => this.addNewTab();
+    this.refs.addTab.onclick = () => this.addNewTab();
 
     this.refs.tabs.forEach(tab =>
       tab.onclick = ({ target }) => this.handleTabChange(target));
@@ -247,17 +246,30 @@ class Statusbar extends Component {
     this.activate(this.externalRefs.categories, this.externalRefs.categories[key]);
   }
 
-  setupModal() {
-    this.modal
-      .setTitle('Create New Tab')
-      .setContent(`
-        <p>WIP</p>
-    `);
-  }
-
   addNewTab() {
-    this.setupModal();
-    this.modal.activate();
+    let style = document.getElementById('toggleStyle');
+    
+    if (!style) {
+        style = document.createElement("style");
+        style.id = 'toggleStyle';
+        style.innerHTML = `
+          #todo {
+            transform: translateX(0%);
+          }
+
+          #panels {
+            transform: translateX(100%)
+          }
+        `;
+        document.head.appendChild(style);
+    } else {
+        const isTranslated = style.innerHTML.includes('translateX(0%)');
+        style.innerHTML = `
+          #todo {
+            transform: ${isTranslated ? 'translateX(100%)' : 'translateX(0%)'};
+          }
+        `;
+    }
   }
 
   createTabs() {
